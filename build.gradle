@@ -1,47 +1,48 @@
-plugins {
-    id 'com.android.application'
-    id 'ru.cleverpumpkin.proguard-dictionaries-generator'
-}
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        appVersionCode = 1
+        appVersionName = "1.0.0"
 
-android {
-    compileSdkVersion rootProject.compileSdkVersion
+        miniSdkVersion = 16
+        compileSdkVersion = 30
+        targetSdkVersion = 26
 
-    defaultConfig {
-        applicationId "com.github.catvod.demo"
-        minSdkVersion rootProject.miniSdkVersion
-        targetSdkVersion rootProject.targetSdkVersion
-        versionCode rootProject.appVersionCode
-        versionName rootProject.appVersionName
+        jsoup_version = "1.14.1"
+        jsoupxpath_version = "2.5.0"
+        okhttp_version = "3.12.13"
+        rxhttp_version = "2.6.5"
     }
 
-    buildTypes {
-        release {
-            minifyEnabled true
-            proguardFiles 'proguard-rules.pro'
-            proguardDictionaries {
-                dictionaryNames = [
-                        "build/class-dictionary",
-                        "build/package-dictionary",
-                        "build/obfuscation-dictionary"
-                ]
-                minLineLength 1
-                maxLineLength 3
-                linesCountInDictionary 100000
-            }
-        }
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://jitpack.io' }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath "gradle.plugin.ru.cleverpumpkin.proguard-dictionaries-generator:plugin:1.0.8"
     }
 }
 
-dependencies {
-    implementation "org.jsoup:jsoup:$jsoup_version"
-    implementation "cn.wanghaomiao:JsoupXpath:$jsoupxpath_version"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation ("com.github.liujingxing.rxhttp:rxhttp:$rxhttp_version") {
-        exclude group: "com.squareup.okhttp3"
+allprojects {
+    repositories {
+        mavenCentral()
+        google()
+        jcenter()
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/central' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://jitpack.io' }
     }
-    annotationProcessor "com.github.liujingxing.rxhttp:rxhttp-compiler:$rxhttp_version"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
