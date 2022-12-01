@@ -37,7 +37,7 @@ jobs:
         cd source
         git config --global user.name "asters1"
         git config --global user.email "gj744559140@gmail.com"
-        git add -all
+        git add tvbox/
         git commit -m "更新jar"
         git push -f -u origin master
 
