@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class HOME extends Spider {
+public class TX extends Spider {
 
     private static final String siteUrl = "https://v.qq.com";
     private static final String siteHost = "v.qq.com";
