@@ -66,10 +66,6 @@ public class HOME extends Spider {
 
         result.put("classes", classes);
         return result.toString();
-                }
-            }
-            // System.out.println("=============："+classes);
-            return result.toString();
         }catch(Exception e){
             SpiderDebug.log(e);
         }
@@ -77,30 +73,15 @@ public class HOME extends Spider {
     }
 
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) {
-        try {
-        }catch(Exception e){
-            SpiderDebug.log(e);
-        }
         return "";
     }
 
 
     public String detailContent(List<String> ids) {
-        try {
-        }catch(Exception e){
-            SpiderDebug.log(e);
-        }
-
 
         return "";
     }
     public String playerContent(String flag, String id, List<String> vipFlags) {
-        try {
-            }
-            return "";
-        } catch (Exception e) {
-            SpiderDebug.log(e);
-        }
         return "";
     }
 
