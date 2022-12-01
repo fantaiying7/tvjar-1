@@ -34,8 +34,8 @@ jobs:
         rm -r source/tvbox/jar_test/*
         mv ./jar/custom_spider.jar source/tvbox/jar_test/
         mv ./jar/custom_spider.jar.md5 source/tvbox/jar_test/
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "asters1"
+        git config --global user.email "gj744559140@gmail.com"
         git remote rm origin
         git remote add origin "https://asters1:${{ secrets.USER_TOKEN }}@github.com/asters1/source"
         git push -f -u origin master
