@@ -30,13 +30,14 @@ jobs:
         add: "['./jar/custom_spider.jar', './jar/custom_spider.jar.md5']"
     - name: Updates spider jar to source
       run: |
-        git clone https://github.com/asters1/source
+        git clone https://asters1:${{ secrets.USER_TOKEN }}@github.com/asters1/source
         rm -r source/tvbox/jar_test/*
         mv ./jar/custom_spider.jar source/tvbox/jar_test/
         mv ./jar/custom_spider.jar.md5 source/tvbox/jar_test/
+        cd source
         git config --global user.name "asters1"
         git config --global user.email "gj744559140@gmail.com"
-        git remote rm origin
-        git remote add origin "https://asters1:${{ secrets.USER_TOKEN }}@github.com/asters1/source"
+        git add -all
+        git commit -m "更新jar"
         git push -f -u origin master
 
