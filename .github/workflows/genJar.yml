@@ -31,3 +31,6 @@ jobs:
     - name: Updates spider jar to source
       run: |
         git clone https://github.com/asters1/source
+        rm -rf source/tvbox/jar_test/*
+        mv ./jar/custom_spider.jar source/tvbox/jar_test/
+        mv ./jar/custom_spider.jar.md5 source/tvbox/jar_test/
