@@ -56,19 +56,19 @@ public class TX extends Spider {
             JSONObject shaoer = new JSONObject();
             JSONObject jilupian = new JSONObject();
 
-            dianying.put("type_id", "dianying");
+            dianying.put("type_id", "movie");
             dianying.put("type_name", "电影");
 
-            dianshiju.put("type_id", "dianshiju");
+            dianshiju.put("type_id", "tv");
             dianshiju.put("type_name", "电视剧");
 
-            dongman.put("type_id", "dongman");
+            dongman.put("type_id", "cartoon");
             dongman.put("type_name", "动漫");
 
-            shaoer.put("type_id", "shaoer");
+            shaoer.put("type_id", "child");
             shaoer.put("type_name", "少儿");
 
-            jilupian.put("type_id", "jilupian");
+            jilupian.put("type_id", "doco");
             jilupian.put("type_name", "纪录片");
 
             classes.put(dianying);
@@ -128,7 +128,6 @@ public class TX extends Spider {
 
         return "";
     }
-
 
     public String detailContent(List<String> ids) {
         return "";
