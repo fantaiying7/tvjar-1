@@ -1,8 +1,9 @@
 package com.github.catvod.spider;
 
-import android.text.TextUtils;
-
+import android.content.Context;
 import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
 
 import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.crawler.Spider;
@@ -128,8 +129,8 @@ public class TX extends Spider {
         return "";
     }
 
-    public String detailContent(List<String> ids) {
 
+    public String detailContent(List<String> ids) {
         return "";
     }
 
