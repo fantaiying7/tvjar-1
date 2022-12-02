@@ -64,7 +64,7 @@ public class TX extends Spider {
         classes.put(shaoer);
         classes.put(jilupian);
 
-        result.put("classes", classes);
+        result.put("class", classes);
         return result.toString();
         }catch(Exception e){
             SpiderDebug.log(e);
