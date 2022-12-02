@@ -1,25 +1,18 @@
 package com.github.catvod.spider;
 
-import android.content.Context;
 import android.text.TextUtils;
 
-import com.github.catvod.crawler.Spider;
+import java.util.HashMap;
+
 import com.github.catvod.crawler.SpiderDebug;
+import com.github.catvod.crawler.Spider;
 import com.github.catvod.utils.okhttp.OkHttpUtil;
-import com.github.catvod.utils.Misc;
 
 import org.json.JSONArray;
-
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-
 import org.jsoup.select.Elements;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.regex.Pattern;
+import org.jsoup.nodes.Element;
 
 public class TX extends Spider {
 
