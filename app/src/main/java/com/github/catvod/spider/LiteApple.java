@@ -345,6 +345,7 @@ public class LiteApple extends Spider {
     public String searchContent(String key, boolean quick) {
         try {
             getTokenKey();
+
             String url = siteUrl + "/v2.vod/androidsearch10086?page=1&wd=" + URLEncoder.encode(key);
             String content = OkHttpUtil.string(url, getHeaders(url, key));
             JSONObject dataObject = new JSONObject(decryptResponse(content));
