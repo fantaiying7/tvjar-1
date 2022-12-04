@@ -18,7 +18,7 @@ import org.jsoup.nodes.Element;
 public class TX extends Spider {
 
     private static final String siteUrl = "https://v.qq.com";
-    private static final String siteHost = "v.qq.com";
+   
     @Override
     public void init(Context context) {
         super.init(context);
@@ -42,53 +42,58 @@ public class TX extends Spider {
     }
 
     public String homeContent(boolean filter) {
+        try {
+            JSONObject result = new JSONObject();
+            JSONArray classes = new JSONArray();
 
-        JSONObject result = new JSONObject();
-        JSONArray classes = new JSONArray();
+            JSONObject dianying = new JSONObject();
+            JSONObject dianshiju = new JSONObject();
+            JSONObject dongman = new JSONObject();
+            JSONObject shaoer = new JSONObject();
+            JSONObject jilupian = new JSONObject();
 
-        JSONObject dianying = new JSONObject();
-        JSONObject dianshiju = new JSONObject();
-        JSONObject dongman = new JSONObject();
-        JSONObject shaoer = new JSONObject();
-        JSONObject jilupian = new JSONObject();
+            JSONObject doudou = new JSONObject();
+            JSONObject yangyang = new JSONObject();
 
-        JSONObject doudou = new JSONObject();
-        JSONObject yangyang = new JSONObject();
+            doudou.put("type_id", "doudou");
+            doudou.put("type_name", "豆豆");
 
-        doudou.put("type_id", "doudou");
-        doudou.put("type_name", "豆豆");
+            yangyang.put("type_id", "yangyang");
+            yangyang.put("type_name", "洋洋");
 
-        yangyang.put("type_id", "yangyang");
-        yangyang.put("type_name", "洋洋");
+            dianying.put("type_id", "movie");
+            dianying.put("type_name", "电影");
 
-        dianying.put("type_id", "movie");
-        dianying.put("type_name", "电影");
+            dianshiju.put("type_id", "tv");
+            dianshiju.put("type_name", "电视剧");
 
-        dianshiju.put("type_id", "tv");
-        dianshiju.put("type_name", "电视剧");
+            dongman.put("type_id", "cartoon");
+            dongman.put("type_name", "动漫");
 
-        dongman.put("type_id", "cartoon");
-        dongman.put("type_name", "动漫");
+            shaoer.put("type_id", "child");
+            shaoer.put("type_name", "少儿");
 
-        shaoer.put("type_id", "child");
-        shaoer.put("type_name", "少儿");
+            jilupian.put("type_id", "doco");
+            jilupian.put("type_name", "纪录片");
 
-        jilupian.put("type_id", "doco");
-        jilupian.put("type_name", "纪录片");
+            classes.put(doudou);
+            classes.put(yangyang);
+            classes.put(dianshiju);
+            classes.put(dianying);
+            classes.put(dongman);
+            classes.put(shaoer);
+            classes.put(jilupian);
 
-        classes.put(doudou);
-        classes.put(yangyang);
-        classes.put(dianshiju);
-        classes.put(dianying);
-        classes.put(dongman);
-        classes.put(shaoer);
-        classes.put(jilupian);
-
-        result.put("class", classes);
-        return result.toString();
+            result.put("class", classes);
+            return result.toString();
+        }catch (Exception e){
+            SpiderDebug.log(e);
+        }
+        return  "";
     }
 
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) {
+       try{
         if (tid.equals("doudou") || tid.equals("yangyang")) {
             JSONObject result = new JSONObject();
             ArrayList<String> list = new ArrayList<String>();
@@ -173,7 +178,12 @@ public class TX extends Spider {
                 SpiderDebug.log(e);
             }
 
+
             return "";
         }
+    }catch (Exception e){
+           SpiderDebug.log(e);
+       }
+       return  "";
     }
 }
