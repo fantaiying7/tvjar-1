@@ -1,9 +1,9 @@
 package com.github.catvod.spider;
-
 import android.content.Context;
-import java.util.HashMap;
+
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.crawler.Spider;
@@ -19,7 +19,6 @@ public class TX extends Spider {
 
     private static final String siteUrl = "https://v.qq.com";
     private static final String siteHost = "v.qq.com";
-
     @Override
     public void init(Context context) {
         super.init(context);
@@ -28,10 +27,8 @@ public class TX extends Spider {
     protected HashMap<String, String> getHeaders(String url) {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("method", "GET");
-        headers.put("Host", siteHost);
         headers.put("User-Agent",
-                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36");
-        headers.put("accept-encoding", "gzip");
+                "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.183 Safari/537.36");
         return headers;
     }
 
@@ -45,7 +42,7 @@ public class TX extends Spider {
     }
 
     public String homeContent(boolean filter) {
-        try {
+
         JSONObject result = new JSONObject();
         JSONArray classes = new JSONArray();
 
@@ -89,10 +86,6 @@ public class TX extends Spider {
 
         result.put("class", classes);
         return result.toString();
-        } catch (Exception e) {
-            SpiderDebug.log(e);
-        }
-        return "";
     }
 
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) {
@@ -175,21 +168,12 @@ public class TX extends Spider {
                 result.put("total", Integer.MAX_VALUE);
                 result.put("list", jSONArray);
                 return result.toString();
+            } catch (Exception e) {
 
-        } catch (Exception e) {
+                SpiderDebug.log(e);
+            }
 
-            SpiderDebug.log(e);
+            return "";
         }
-
-        return "";
     }
-
-    public String detailContent(List<String> ids) {
-        return "";
-    }
-
-    public String playerContent(String flag, String id, List<String> vipFlags) {
-        return "";
-    }
-
 }
