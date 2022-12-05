@@ -95,6 +95,7 @@ public class TX extends Spider {
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) {
        try{
         if (tid.equals("doudou") || tid.equals("yangyang")) {
+            String q_url,result;
             if (tid.equals("doudou")) {
                 q_url = "https://wisteria.cf/raw.githubusercontent.com/asters1/source/master/tvbox/json/doudou.json";
             } else {
